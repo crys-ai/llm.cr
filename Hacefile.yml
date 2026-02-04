@@ -1,0 +1,53 @@
+tasks:
+  # ===========================================
+  # Core Development Tasks
+  # ===========================================
+  spec:
+    description: Run crystal spec
+    phony: true
+    always_run: true
+    commands: |
+      crystal spec
+  format:
+    description: Format code with crystal tool format
+    phony: true
+    always_run: true
+    commands: |
+      crystal tool format
+  format:check:
+    description: Check code formatting without modifying files
+    phony: true
+    always_run: true
+    commands: |
+      crystal tool format --check
+  ameba:
+    description: Run Ameba linter
+    phony: true
+    always_run: true
+    commands: |
+      bin/ameba
+  ameba:fix:
+    description: Run Ameba linter
+    phony: true
+    always_run: true
+    commands: |
+      bin/ameba --fix
+  ameba:gen-config:
+    description: Run Ameba linter
+    phony: true
+    always_run: true
+    commands: |
+      bin/ameba --gen-config
+  clean:
+    description: Clean build artifacts
+    phony: true
+    always_run: true
+    commands: |
+      rm -rf bin/llm.cr lib .crystal
+  all:
+    description: Format, lint, and test
+    default: true
+    phony: true
+    always_run: true
+    commands: |
+      bin/hace --parallel format ameba spec

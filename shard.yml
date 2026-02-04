@@ -1,0 +1,17 @@
+name: llm.cr
+version: 0.0.1
+authors:
+  - omarluq <omar.luqman@hey.com>
+  - ralsina <email>
+crystal: ">= 1.18.2"
+targets:
+  hace:
+    main: lib/hace/src/main.cr # hace doesnt build with cr 1.19 due to a crinja bug! install via yay instead for time being
+  ameba:
+    main: lib/ameba/src/cli.cr
+development_dependencies:
+  ameba:
+    github: crystal-ameba/ameba
+  hace:
+    github: ralsina/hace
+license: MIT
